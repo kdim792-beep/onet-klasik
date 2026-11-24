@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Teko:wght@600&family=Nunito:wght@700;800;900&display=swap');
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: #111827;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.font-retro {
+    font-family: 'Press Start 2P', monospace;
+}
+
+/* Windows XP / Onet 2003 Retro Bevel Tile Styling */
+.onet-tile {
+    background: linear-gradient(135deg, #fffdf0 0%, #f7e6ad 100%);
+    box-shadow: inset 2px 2px 0px #ffffff, inset -2px -2px 0px #b38f38, 2px 2px 4px rgba(0,0,0,0.4);
+    border: 1px solid #7d5f13;
+    transition: transform 0.08s ease, filter 0.08s ease;
+    cursor: pointer;
+}
+
+.onet-tile:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+}
+
+.onet-tile:active {
+    transform: translateY(1px);
+    box-shadow: inset -2px -2px 0px #ffffff, inset 2px 2px 0px #b38f38;
+}
+
+.onet-tile.selected {
+    background: linear-gradient(135deg, #70e1ff 0%, #0094ff 100%) !important;
+    box-shadow: inset 2px 2px 0px #e0f7ff, inset -2px -2px 0px #005699, 0 0 12px #00d2ff !important;
+    border-color: #003e73 !important;
+    animation: pulse-border 0.6s infinite alternate;
+}
+
+.onet-tile.hinted {
+    animation: hint-glow 0.8s infinite alternate;
+}
+
+/* DANGER / CHAOS MODE STYLES */
+@keyframes chaos-pulse {
+    0%, 100% { border-color: #ef4444; box-shadow: 0 0 15px rgba(239, 68, 68, 0.6); }
+    50% { border-color: #f97316; box-shadow: 0 0 25px rgba(249, 115, 22, 0.9); }
+}
+
+.chaos-active-container {
+    animation: chaos-pulse 0.9s infinite alternate !important;
+}
+
+@keyframes flash-red {
+    0% { filter: brightness(1); }
+    50% { filter: brightness(1.7) sepia(0.8) hue-rotate(-50deg); }
+    100% { filter: brightness(1); }
+}
+
+.flash-chaos {
+    animation: flash-red 0.35s ease-in-out;
+}
+
+@keyframes pulse-border {
+    from { filter: brightness(1); }
+    to { filter: brightness(1.25); }
+}
+
+@keyframes hint-glow {
+    from { box-shadow: 0 0 4px #eab308, inset 2px 2px 0px #fff; }
+    to { box-shadow: 0 0 16px #ef4444, inset 2px 2px 0px #fff; }
+}
+
+.empty-cell {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    pointer-events: none;
+}
+
+/* Glassmorphism overlays */
+.modal-glass {
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 3px;
+}
